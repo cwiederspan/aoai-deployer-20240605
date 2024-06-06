@@ -4,12 +4,11 @@ param location string
 resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
   name: name
   location: location
+  kind: 'OpenAI'
   sku: {
     name: 'S0'    // Could be parameterized, but it's currently the only allowable value here
   }
-  kind: 'OpenAI'
   properties: {
-    //enableSoftDelete: false
     customSubDomainName: name
     publicNetworkAccess: 'Enabled'
   }
@@ -33,7 +32,7 @@ resource model 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
       source: 'string'
       version: 'string'
     }
-    // raiPolicyName: 'string'
+    raiPolicyName: 'string'
     scaleSettings: {
       capacity: int
       scaleType: 'string'
