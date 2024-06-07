@@ -3,7 +3,6 @@ A method of deploying Azure OpenAI across multiple subscriptions and regions via
 
 ```bash
 
-
 az bicep upgrade -t linux-x64
 
 az login
@@ -17,7 +16,6 @@ az deployment sub create \
 --location $LOCATION \
 --parameters \
   aoaiBaseName=$BASENAME
-
 
 az deployment sub delete --name aoia 
 

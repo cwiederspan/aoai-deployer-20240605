@@ -1,7 +1,7 @@
 param name string
 param location string
 
-resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
+resource azureopenai 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
   name: name
   location: location
   kind: 'OpenAI'
@@ -14,30 +14,27 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
   }
 }
 
-/*
 resource model 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
-  parent: cognitiveService
+  parent: azureopenai
   name: 'gpt-4-turbo'
   sku: {
-    capacity: int
-    family: 'string'
-    name: 'string'
-    size: 'string'
-    tier: 'string'
+    name: 'Standard'
+    capacity: 150
+    // family: 'string'
+    // size: 'string'
+    // tier: 'string'
   }
   properties: {
     model: {
       format: 'OpenAI'
-      name: 'string'
-      source: 'string'
-      version: 'string'
+      name: 'gpt-4'
+      version: 'turbo-2024-04-09'
     }
-    raiPolicyName: 'string'
-    scaleSettings: {
-      capacity: int
-      scaleType: 'string'
-    }
-    versionUpgradeOption: 'string'
+    raiPolicyName: 'Microsoft.Default'
+    versionUpgradeOption: 'OnceCurrentVersionExpired'
+    // scaleSettings: {
+    //   capacity: int
+    //   scaleType: 'string'
+    // }
   }
 }
-*/
