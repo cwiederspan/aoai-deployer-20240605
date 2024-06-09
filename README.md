@@ -10,13 +10,16 @@ az login
 
 BASENAME=cdw-aiservices-20240605
 LOCATION=swedencentral
+AI_LOCATIONS='["swedencentral"]'
+#AI_LOCATIONS='["swedencentral", "eastus2"]'
 
 az deployment sub create \
 --name aoia \
 --template-file ./infra/main.bicep \
 --location $LOCATION \
 --parameters \
-  baseName=$BASENAME
+  baseName=$BASENAME \
+  aiLocations=$AI_LOCATIONS
 
 az deployment sub delete --name aoia 
 

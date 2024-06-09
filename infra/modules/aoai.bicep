@@ -20,7 +20,7 @@ resource model 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
   name: 'gpt-4-turbo'
   sku: {
     name: 'Standard'
-    capacity: 150
+    capacity: 80    // 150 is possible in some locations
     // family: 'string'
     // size: 'string'
     // tier: 'string'
