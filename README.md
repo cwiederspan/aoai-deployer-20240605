@@ -1,5 +1,6 @@
-# aoai-deployer-20240605
-A method of deploying Azure OpenAI across multiple subscriptions and regions via automation.
+# Azure OpenAI Deployment
+
+An example of deploying Azure OpenAI across multiple subscriptions and regions via automation.
 
 ```bash
 
@@ -15,7 +16,7 @@ az deployment sub create \
 --template-file ./infra/main.bicep \
 --location $LOCATION \
 --parameters \
-  aoaiBaseName=$BASENAME
+  baseName=$BASENAME
 
 az deployment sub delete --name aoia 
 
