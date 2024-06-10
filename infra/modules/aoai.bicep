@@ -1,26 +1,26 @@
 param baseName string
-param location string
+param configuration object
 param workspaceId string
 
 resource azureopenai 'Microsoft.CognitiveServices/accounts@2023-05-01' = {
-  name: '${baseName}-aoai'
-  location: location
+  name: '${baseName}-${configuration.region}-aoai'
+  location: configuration.region
   kind: 'OpenAI'
   sku: {
     name: 'S0'    // Could be parameterized, but it's currently the only allowable value here
   }
   properties: {
-    customSubDomainName: '${baseName}-aoai'
+    customSubDomainName: '${baseName}-${configuration.region}-aoai'
     publicNetworkAccess: 'Enabled'
   }
 }
 
 resource model 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
   parent: azureopenai
-  name: 'gpt-4-turbo'
+  name: configuration.name
   sku: {
     name: 'Standard'
-    capacity: 80    // 150 is possible in some locations
+    capacity: configuration.capacity
     // family: 'string'
     // size: 'string'
     // tier: 'string'
@@ -28,8 +28,8 @@ resource model 'Microsoft.CognitiveServices/accounts/deployments@2023-05-01' = {
   properties: {
     model: {
       format: 'OpenAI'
-      name: 'gpt-4'
-      version: 'turbo-2024-04-09'
+      name: configuration.family
+      version: configuration.version
     }
     raiPolicyName: 'Microsoft.Default'
     versionUpgradeOption: 'OnceCurrentVersionExpired'

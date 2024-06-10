@@ -1,0 +1,19 @@
+// US, Canada, Europe, UK, APJ
+[
+    {
+        "name": "US",
+        "home": "eastus2",
+        "locations": [
+            {
+                "region": "eastus2",
+                "models": [
+                    {
+                        "name": "gpt-4",
+                        "version": "turbo-2024-04-09",
+                        "capacity": 80
+                    }
+                ]
+            }
+        ]
+    }
+]
