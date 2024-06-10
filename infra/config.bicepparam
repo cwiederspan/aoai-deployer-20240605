@@ -17,4 +17,11 @@ param configurations = [
     version: 'turbo-2024-04-09'
     capacity: 150
   }
+  {
+    region: 'uksouth'
+    name: 'gpt-4-preview'
+    family: 'gpt-4'
+    version: '0125-Preview'
+    capacity: 80
+  }
 ]
