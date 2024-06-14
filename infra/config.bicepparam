@@ -4,7 +4,7 @@ param baseName = ''
 
 param regions = [
 
-  // *** Regions that already have GPT-4-Turbo-20240409 ***
+  // *** Regions that already have GPT-4-Turbo-20240409 *** //
   
   {
     location: 'eastus2'
@@ -32,7 +32,7 @@ param regions = [
   }
 
   // *** Regions that only have GPT-4-1106-Preview *** //
-  /*
+  
   {
     location: 'australiaeast'
     deployments: [
@@ -165,17 +165,17 @@ param regions = [
         upgradeOption: 'OnceNewDefaultVersionAvailable'
       }
     ]
-  }*/
+  }
 
   // *** Regions that only have GPT-4-0125-Preview *** //
-  /*
+
   {
     location: 'eastus'
     deployments: [
       {
         name: 'gpt-4-turbo-fixed'
         family: 'gpt-4'
-        version: '1106-Preview'
+        version: '0125-Preview'
         capacity: 40
         upgradeOption: 'NoAutoUpgrade'
       }
@@ -194,7 +194,7 @@ param regions = [
       {
         name: 'gpt-4-turbo-fixed'
         family: 'gpt-4'
-        version: '1106-Preview'
+        version: '0125-Preview'
         capacity: 40
         upgradeOption: 'NoAutoUpgrade'
       }
@@ -213,7 +213,7 @@ param regions = [
       {
         name: 'gpt-4-turbo-fixed'
         family: 'gpt-4'
-        version: '1106-Preview'
+        version: '0125-Preview'
         capacity: 40
         upgradeOption: 'NoAutoUpgrade'
       }
@@ -232,7 +232,7 @@ param regions = [
       {
         name: 'gpt-4-turbo-fixed'
         family: 'gpt-4'
-        version: '1106-Preview'
+        version: '0125-Preview'
         capacity: 40
         upgradeOption: 'NoAutoUpgrade'
       }
@@ -245,5 +245,4 @@ param regions = [
       }
     ]
   }
-  */
 ]
