@@ -4,7 +4,7 @@ targetScope = 'subscription'
 param baseName string
 
 @description('A list of Azure regions to deploy the AI resources to.')
-param configurations array = []
+param regions array = []
 
 resource rg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: baseName
@@ -20,12 +20,12 @@ module monitor './modules/monitoring.bicep' = {
   }
 }
 
-module aoai './modules/aoai.bicep' = [for config in configurations: {
-  name: 'aoai-${config.region}'
+module aoai './modules/aoai.bicep' = [for region in regions: {
+  name: 'aoai-${region.location}'
   scope: rg
   params: {
     baseName: baseName
-    configuration: config
+    region: region
     workspaceId: monitor.outputs.workspaceId
   }
 }]

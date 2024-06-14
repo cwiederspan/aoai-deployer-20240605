@@ -8,8 +8,8 @@ az bicep upgrade -t linux-x64
 
 az login
 
-BASENAME=cdw-aiservices-20240605
-LOCATION=swedencentral
+BASENAME=cdw-aiservices-20240614
+LOCATION=eastus2
 
 az deployment sub create \
 --name aoia \
