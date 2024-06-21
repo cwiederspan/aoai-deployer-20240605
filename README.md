@@ -22,3 +22,17 @@ az deployment sub delete --name aoia
 az group delete -n $BASENAME --yes
 
 ```
+
+
+
+## Get List of Accounts and Keys
+
+```bash
+
+# Make sure the file is executable
+chmod +x ./listkeys.sh
+
+# Execute the script file
+./listkeys.sh $BASENAME
+
+```
